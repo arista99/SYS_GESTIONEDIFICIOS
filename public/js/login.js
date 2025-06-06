@@ -31,11 +31,13 @@ window.addEventListener("DOMContentLoaded", () => {
           });
         }
       },
-      error: function () {
+      error: function (xhr, status, error) {
+        console.error("AJAX Error:", xhr.responseText);
         Swal.fire({
           icon: 'error',
           title: 'Error en la conexión',
-          timer: 2000,
+          text: xhr.responseText,
+          timer: 3000,
           showConfirmButton: false,
         });
       },

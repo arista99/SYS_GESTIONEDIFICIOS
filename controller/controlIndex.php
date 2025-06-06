@@ -1,6 +1,7 @@
 <?php
 //MODEL
 require_once('model/modelLogin.php');
+
 //DATA
 require_once('data/usuario.php');
 
@@ -23,19 +24,15 @@ class ControlIndex
     public function LoginUsuario()
     {
         try {
-            //var_dump($_POST);
             $login = new Usuario();
-            $login->setusuario($_POST['usuario_red']);
-            $login->setpassword($_POST['contrasena']);
+            $login->setusuario($_POST['usuario']);
+            $login->setcontrasena($_POST['contrasena']);
 
             $acceso = $this->LOGIN->logeo($login);
 
-            echo "<pre>";
-            var_dump($acceso);
-            echo "</pre>";
             if ($acceso) {
                 session_start();
-                $_SESSION["idUsuario"] = $acceso->id;
+                $_SESSION["idUsuario"] = $acceso->idUsuario;
                 $_SESSION["usuario"] = $acceso->usuario;
                 $_SESSION["idRol"] = $acceso->idRol;
 
@@ -43,14 +40,11 @@ class ControlIndex
                 $redirectUrl = "";
 
                 if ($_SESSION["idRol"] == 4) {
-                    echo "Listo";
-                    //$redirectUrl = "DashboardControl"; // Administrador
-                } elseif ($_SESSION["id_perfil"] == 5) {
-                    echo "Listo";
-                    //$redirectUrl = "DashboardControl"; // Soporte
+                    $redirectUrl = "DashboardControl"; // Administrador
+                } elseif ($_SESSION["idRol"] == 5) {
+                    $redirectUrl = "DashboardControl"; // Soporte
                 } else {
-                    echo "Listo";
-                    //$redirectUrl = "DashboardControl"; // Usuario general
+                    $redirectUrl = "DashboardControl"; // Usuario general
                 }
 
                 // Devolver respuesta JSON para AJAX

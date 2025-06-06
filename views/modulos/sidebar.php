@@ -29,27 +29,48 @@
         </a>
         <div id="collapsePages" class="collapse" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded" id="accordionSidenavPagesMenu">
-
-                <a class="nav-link collapsed" style="color:#000;" href="#" data-toggle="collapse"
-                   data-target="#pagesCollapseAccount" aria-expanded="false" aria-controls="pagesCollapseAccount">
-                    Cuentas
-                    <div class="sidenav-collapse-arrow float-right">
+                <a class="nav-link collapsed" style="color:#000;" href="EdificioControl" >
+                    Edificios
+                    <!-- <div class="sidenav-collapse-arrow float-right">
                         <i class="fas fa-angle-down"></i>
-                    </div>
+                    </div> -->
+                </a>
+                <a class="nav-link collapsed" style="color:#000;" href="DepartamentoControl" >
+                    Departamentos
+                    <!-- <div class="sidenav-collapse-arrow float-right">
+                        <i class="fas fa-angle-down"></i>
+                    </div> -->
+                </a>
+                <a class="nav-link collapsed" style="color:#000;" href="PropietarioControl" >
+                    Propietarios
+                    <!-- <div class="sidenav-collapse-arrow float-right">
+                        <i class="fas fa-angle-down"></i>
+                    </div> -->
+                </a>
+                <a class="nav-link collapsed" style="color:#000;" href="OcupanteControl" >
+                    Ocupantes
+                    <!-- <div class="sidenav-collapse-arrow float-right">
+                        <i class="fas fa-angle-down"></i>
+                    </div> -->
+                </a>
+                <a class="nav-link collapsed" style="color:#000;" href="MascotaControl" >
+                    Mascotas
+                    <!-- <div class="sidenav-collapse-arrow float-right">
+                        <i class="fas fa-angle-down"></i>
+                    </div> -->
                 </a>
 
-                <div class="collapse" id="pagesCollapseAccount" data-parent="#accordionSidenavPagesMenu">
+                <!-- <div class="collapse" id="pagesCollapseAccount" data-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
                         <a class="nav-link" href="CreacionUsuarios" style="color:#000;">Crear usuario</a>
-                        <a class="nav-link" href="ListaUsuarios" style="color:#000;">Usuarios</a>
                     </nav>
-                </div>
+                </div> -->
             </div>
         </div>
     </li>
 
     <!-- Utilities -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
            aria-expanded="false" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
@@ -64,15 +85,15 @@
                 <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>
         </div>
-    </li>
+    </li> -->
 
-    <hr class="sidebar-divider">
+    <!-- <hr class="sidebar-divider"> -->
 
     <!-- Addons -->
-    <div class="sidebar-heading">Addons</div>
+    <!-- <div class="sidebar-heading">Addons</div> -->
 
     <!-- Pages -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesAddon"
            aria-expanded="false" aria-controls="collapsePagesAddon">
             <i class="fas fa-fw fa-folder"></i>
@@ -90,23 +111,23 @@
                 <a class="collapse-item" href="blank.html">Blank Page</a>
             </div>
         </div>
-    </li>
+    </li> -->
 
     <!-- Charts -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="charts.html">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span>
         </a>
-    </li>
+    </li> -->
 
     <!-- Tables -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span>
         </a>
-    </li>
+    </li> -->
 
     <hr class="sidebar-divider d-none d-md-block">
 

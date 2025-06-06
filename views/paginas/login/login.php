@@ -43,9 +43,10 @@
                                         <!-- <img src="public/img/logo.jpg" alt="Logo transber" class="w-75 h-75 img-fluid" style="max-height: 300px;"> -->
                                         <hr class="w-50 mx-auto border-primary">
                                     </div>
+                                    <!-- <form action="LoginUsuario" method="POST"> -->
                                     <form id="frmAjaxLogin" class="user">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="usuario_red" name="usuario_red" placeholder="Usuario" autocomplete="current-username">
+                                            <input type="text" class="form-control form-control-user" id="usuario" name="usuario" placeholder="Usuario" autocomplete="current-username">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" id="contrasena" name="contrasena" placeholder="Contraseña" autocomplete="current-password">

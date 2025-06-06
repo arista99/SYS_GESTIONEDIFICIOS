@@ -20,9 +20,9 @@ class ModeloLogin
     public function logeo(Usuario $usuario)
     {
         try {
-            $sql = "SELECT * FROM usuario WHERE usuario=? AND password=?";
+            $sql = "SELECT * FROM usuario WHERE usuario=? AND contrasena=?";
             $stm = $this->MYSQL->ConectarBD()->prepare($sql);
-            $stm->execute(array($usuario->getusuario(), $usuario->getpassword()));
+            $stm->execute(array($usuario->getusuario(), $usuario->getcontrasena()));
             return $stm->fetch(PDO::FETCH_OBJ);
         } catch (Exception $th) {
             echo $th->getMessage();

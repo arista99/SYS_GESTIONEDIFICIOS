@@ -8,7 +8,7 @@ class Usuario
     private $apePaterno;
     private $apeMaterno;
     private $usuario;
-    private $password;
+    private $contrasena;
     private $idRol;
 
 
@@ -19,7 +19,7 @@ class Usuario
         $this->apePaterno = "";
         $this->apeMaterno = "";
         $this->usuario = "";
-        $this->password = "";
+        $this->contrasena = "";
         $this->idRol = "";
     }
 
@@ -73,14 +73,14 @@ class Usuario
         return $this->usuario;
     }
     
-    function setpassword($password)
+    function setcontrasena($contrasena)
     {
-        $this->password= $password;
+        $this->contrasena= $contrasena;
     }
 
-    function getpassword()
+    function getcontrasena()
     {
-        return $this->password;
+        return $this->contrasena;
     }
 
     function setidRol($idRol)
