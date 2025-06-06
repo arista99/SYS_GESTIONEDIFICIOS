@@ -1,0 +1,15 @@
+{
+    "name": "ktorres/sys_gestionedificios",
+    "description": "sys_gestionedificios",
+    "autoload": {
+        "psr-4": {
+            "Ktorres\\SysInventario\\": "src/"
+        }
+    },
+    "require": {
+        "nesbot/carbon": "^3.9",
+        "tecnickcom/tcpdf": "^6.9",
+        "phpoffice/phpspreadsheet": "^4.2",
+        "realrashid/sweet-alert": "^7.3"
+    }
+}
