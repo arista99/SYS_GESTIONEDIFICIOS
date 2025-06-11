@@ -20,7 +20,7 @@ class ModeloDepartamento
     public function findDepartamento($nroDepartamento = '',$estadoDepartamento = '')
     {
         try {
-            $sql = "SELECT ed.denominacion,de.nroDepartamento,de.areaM2,td.descripcion,edo.descripcion,u.nombres,de.piso
+            $sql = "SELECT de.idDepartamento,ed.denominacion,de.nroDepartamento,de.areaM2,td.descripcion AS tipo,edo.descripcion AS estado,u.nombres,de.piso
                     FROM departamento AS de
                     INNER JOIN edificio AS ed ON ed.idEdificio=de.edificioFK
                     INNER JOIN tipodepartamento AS td ON td.idTipo=de.tipoDepartamentoFK

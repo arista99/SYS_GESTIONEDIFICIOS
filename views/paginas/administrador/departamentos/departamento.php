@@ -41,6 +41,7 @@
                             <th>Tipo de Departamento</th>
                             <th>Estado de Departamento</th>
                             <th>Propietario del Edificio</th>
+                            <th>Piso</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -116,60 +117,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    let tabla;
-
-    $(document).ready(function() {
-        tabla = $('#tablaDatos').DataTable({
-            ajax: {
-                url: 'ListaDepartamento',
-                type: 'POST',
-                data: function(d) {
-                    d.nroDepartamento = $('#nroDepartamento').val();
-                    d.estadoDepartamento = $('#estadoDepartamento').val();
-                },
-                dataSrc: 'data'
-            },
-            columns: [{
-                    data: 'denominacion'
-                },
-                {
-                    data: 'nroDepartamento'
-                },
-                {
-                    data: 'areaM2'
-                },
-                {
-                    data: 'tipo'
-                },
-                {
-                    data: 'estado'
-                },
-                {
-                    data: 'nombres'
-                },
-                {
-                    data: 'piso'
-                },
-                {
-                    data: null,
-                    render: function(data) {
-                        return `
-                        <button class="btn btn-warning btn-sm">Editar</button>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
-                    `;
-                    }
-                }
-            ]
-        });
-
-        // Botón buscar
-        $('#btnBuscar').click(function() {
-            tabla.ajax.reload();
-        });
-    });
-</script>
 
 <!-- Footer -->
 <?php include_once('views/modulos/footer.php'); ?>

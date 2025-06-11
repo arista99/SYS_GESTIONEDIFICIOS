@@ -41,6 +41,7 @@
         </div>
     </div>
 </div>
+
 <!-- jQuery (¡debe ir primero!) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap core JavaScript-->
@@ -66,6 +67,8 @@
 
 <!-- Page level custom scripts -->
 <script src="public/assets/js/demo/datatables-demo.js"></script>
+
+<script src="public/js/buscarDepartamento.js"></script>
 
 </body>
 
