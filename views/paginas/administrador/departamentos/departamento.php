@@ -7,7 +7,7 @@
 <div class="container-xl px-4 mt-4">
     <!-- Título y botón -->
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="mb-0">Gestión de Edificio</h2>
+        <h2 class="mb-0">Gestión de Departamentos</h2>
         <!-- Bootstrap 4 - correcto -->
         <button class="btn btn-success" data-toggle="modal" data-target="#modalCrear">+ Crear nuevo</button>
 
@@ -119,4 +119,78 @@
 </div>
 
 <!-- Footer -->
-<?php include_once('views/modulos/footer.php'); ?>
+</div>
+<!-- End of Main Content -->
+
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Gestion de Activos - Transber <?php echo date("Y"); ?></span>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Listo para salir?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Seleccione “Cerrar sesión” a continuación si está listo para finalizar su sesión actual.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                <a class="btn btn-primary" href="Close">Cerrar sesión</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery (¡debe ir primero!) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap core JavaScript-->
+<script src="public/assets/vendor/jquery/jquery.min.js"></script>
+<script src="public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="public/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="public/assets/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="public/assets/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<!-- <script src="public/assets/js/demo/chart-area-demo.js"></script>
+    <script src="public/assets/js/demo/chart-pie-demo.js"></script> -->
+
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="public/assets/js/demo/datatables-demo.js"></script>
+
+<script src="public/js/buscarDepartamento.js"></script>
+
+</body>
+
+</html>

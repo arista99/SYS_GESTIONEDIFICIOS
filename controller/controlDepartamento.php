@@ -33,10 +33,6 @@ class controlDepartamento
 
         $lista_usuarios = $this->MODELOS->listUsuario();
         $lista_edificios = $this->MODELOS->listEdificio();
-        $lista_departamentos = $this->MODELOS->listDepartamento();
-        $lista_propietarios = $this->MODELOS->listPropietario();
-        $lista_Ocupantes = $this->MODELOS->listOcupantes();
-        $lista_Mascotas = $this->MODELOS->listMascotas();
         $listTipoDepartamentos = $this->MODELOS->listTipoDepartamento();
         $listEstadoDepartamentos = $this->MODELOS->listEstadoDepartamento();
 

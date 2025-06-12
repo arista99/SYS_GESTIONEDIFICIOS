@@ -5,7 +5,9 @@ class Edificio
 
     private $idEdificio;
     private $denominacion;
+    private $direccion;
     private $nroDePisos;
+    private $nroDeDepartamentos;
     private $fechaRegistro;
     private $estado;
 
@@ -38,6 +40,16 @@ class Edificio
         return $this->denominacion;
     }
 
+    function setdireccion($direccion)
+    {
+        $this->direccion= $direccion;
+    }
+
+    function getdireccion()
+    {
+        return $this->direccion;
+    }
+
     function setnroDePisos($nroDePisos)
     {
         $this->nroDePisos= $nroDePisos;
@@ -46,6 +58,16 @@ class Edificio
     function getnroDePisos()
     {
         return $this->nroDePisos;
+    }
+
+    function setnroDeDepartamentos($nroDeDepartamentos)
+    {
+        $this->nroDeDepartamentos= $nroDeDepartamentos;
+    }
+
+    function getnroDeDepartamentos()
+    {
+        return $this->nroDeDepartamentos;
     }
 
     function setfechaRegistro($fechaRegistro)
