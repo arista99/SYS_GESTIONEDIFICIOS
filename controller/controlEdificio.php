@@ -84,13 +84,44 @@ class controlEdificio
     {
         try {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $edificio = new Edificio();
-                $edificio->setdenominacion($_POST['condominio']);
-                $edificio->setdireccion($_POST['direccion']);
-                $edificio->setnroDePisos($_POST['nropiso']);
-                $edificio->setnroDeDepartamentos($_POST['nrodepa']);
-                $edificio->setestado($_POST['estado_con']);
 
+                $errores = [];
+
+if (empty($_POST['idEdificio']) || !is_numeric($_POST['idEdificio'])) {
+    $errores[] = "ID inválido";
+}
+if (empty($_POST['edit_condominio'])) {
+    $errores[] = "El campo Condominio es obligatorio.";
+}
+if (empty($_POST['edit_direccion'])) {
+    $errores[] = "El campo Dirección es obligatorio.";
+}
+if (!is_numeric($_POST['edit_nropiso'])) {
+    $errores[] = "Nro de Pisos debe ser numérico.";
+}
+if (!is_numeric($_POST['edit_nrodepa'])) {
+    $errores[] = "Nro de Departamentos debe ser numérico.";
+}
+if (empty($_POST['edit_estado_con'])) {
+    $errores[] = "El campo Estado es obligatorio.";
+}
+
+if (!empty($errores)) {
+    echo json_encode(['success' => false, 'message' => implode(" | ", $errores)]);
+    exit;
+}
+
+
+                error_log(print_r($_POST, true)); 
+                $edificio = new Edificio();
+                $edificio->setidEdificio($_POST['idEdificio']);
+                $edificio->setdenominacion($_POST['edit_condominio']);
+                $edificio->setdireccion($_POST['edit_direccion']);
+                $edificio->setnroDePisos($_POST['edit_nropiso']);
+                $edificio->setnroDeDepartamentos($_POST['edit_nrodepa']);
+                $edificio->setestado($_POST['edit_estado_con']);
+
+                // var_dump($edificio);
                 //llmando al inser de modelo solicitud
                 $update_edificio = $this->EDIFICIO->updateEdificio($edificio);
 

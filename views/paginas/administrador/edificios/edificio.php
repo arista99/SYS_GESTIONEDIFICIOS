@@ -87,28 +87,28 @@
 
     <div class="modal fade" id="modalEditarEdificio" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form id="formEditar" class="modal-content" enctype="multipart/form-data">
+            <form id="formEditarEdificio" class="modal-content" enctype="multipart/form-data">
                 <div class="modal-header">
                     <h5 class="modal-title">Editar Edificio</h5>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" id="edit_id" name="idEdificio">
+                    <input type="hidden" id="idEdificio" name="idEdificio">
 
                     <div class="mb-3">
                         <label for="edit_condominio" class="form-label">Condominio</label>
-                        <input type="text" id="edit_condominio" name="condominio" class="form-control">
+                        <input type="text" id="edit_condominio" name="edit_condominio" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="edit_direccion" class="form-label">Dirección</label>
-                        <input type="text" id="edit_direccion" name="direccion" class="form-control">
+                        <input type="text" id="edit_direccion" name="edit_direccion" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="edit_nropiso" class="form-label">Nro de Pisos</label>
-                        <input type="text" id="edit_nropiso" name="nropiso" class="form-control" >
+                        <input type="text" id="edit_nropiso" name="edit_nropiso" class="form-control" >
                     </div>
                     <div class="mb-3">
                         <label for="edit_nrodepa" class="form-label">Nro de Departamentos</label>
-                        <input type="text" id="edit_nrodepa" name="nrodepa" class="form-control">
+                        <input type="text" id="edit_nrodepa" name="edit_nrodepa" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="edit_estado_con" class="form-label">Estado de Condominios</label>

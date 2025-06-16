@@ -64,7 +64,7 @@ class ModeloEdificio
     public function updateEdificio(Edificio $edificio)
     {
         try {
-            $sql = "UPDATE edificio SET denominacion = ? , direccion = ? , nroDePisos = ? , nroDeDepartamentos = ? , estado = ? values idEdificio = ?";
+            $sql = "UPDATE edificio SET denominacion = ? , direccion = ? , nroDePisos = ? , nroDeDepartamentos = ? , estado = ? WHERE idEdificio = ?";
             $stm = $this->MYSQL->ConectarBD()->prepare($sql)->execute(
                 array(
                     $edificio->getdenominacion(),

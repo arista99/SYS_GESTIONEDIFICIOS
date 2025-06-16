@@ -17,7 +17,7 @@ class Edificio
         $this->denominacion = "";
         $this->nroDePisos = "";
         $this->fechaRegistro = "";
-        $this->estado = ""; "";
+        $this->estado = "";
     }
 
     function setidEdificio($idEdificio)

@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     if (response.success) {
                         Swal.fire({
                             icon: 'success',
-                            title: 'Se creo departamento',
+                            title: 'Se creo edificio',
                             timer: 1500,
                             showConfirButton: false,
                         }).then(function () {
