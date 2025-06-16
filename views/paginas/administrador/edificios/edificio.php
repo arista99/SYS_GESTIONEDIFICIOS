@@ -9,9 +9,13 @@
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="mb-0">Gestión de Edificios</h2>
         <!-- Bootstrap 4 - correcto -->
-        <button class="btn btn-success" data-toggle="modal" data-target="#modalCrearEdificio">+ Crear nuevo</button>
-
+            <?php if($_SESSION["idRol"] == 4) : ?>
+                <button class="btn btn-success" data-toggle="modal" data-target="#modalCrearEdificio">+ Crear nuevo</button>
+            <?php endif; ?>
     </div>
+    <script>
+    const idRol = <?= json_encode($_SESSION['idRol']) ?>;
+    </script>
 
     <!-- Filtro -->
     <div class="row mb-3">
