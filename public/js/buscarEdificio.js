@@ -18,23 +18,32 @@ $(document).ready(function () {
       {
         data: "idEdificio",
         render: function (data, type, row) {
-          let botones = "";
           if (idRol == 4) {
-            botones += `<button class="btn btn-sm btn-warning btnEditar"
-                        data-id="${row.idEdificio}"
-                        data-condominio="${row.denominacion}"
-                        data-direccion="${row.direccion}"
-                        data-nropiso="${row.nroDePisos}"
-                        data-nrodepa="${row.nroDeDepartamentos}"
-                        data-estado="${row.estado}">
-                        ✏️</button>
-                         <button class="btn btn-sm btn-danger btnEliminar" data-id="${row.idEdificio}">🗑️</button>
-                    `;
+            return `
+              <button class="btn btn-sm btn-warning btnEditar"
+                data-id="${row.idEdificio}"
+                data-condominio="${row.denominacion}"
+                data-direccion="${row.direccion}"
+                data-nropiso="${row.nroDePisos}"
+                data-nrodepa="${row.nroDeDepartamentos}"
+                data-estado="${row.estado}">
+                ✏️
+              </button>
+              <button class="btn btn-sm btn-danger btnEliminar" data-id="${row.idEdificio}">🗑️</button>
+            `;
+          } else {
+            return "";
           }
-          return botones;         
         },
       },
     ],
+    columnDefs: [
+      {
+        targets: 5,
+        visible: idRol == 4, // solo mostrar si rol == 4
+        searchable: false
+      }
+    ]
   });
 
   // Botón Buscar

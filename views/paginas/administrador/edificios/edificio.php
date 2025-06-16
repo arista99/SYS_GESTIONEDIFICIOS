@@ -120,7 +120,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-warning" data-dismiss="modal" aria-label="Cerrar">Cerrar</button>
                     <button type="submit" name="updateInfoButtonEdificio" id="updateInfoButtonEdificio" class="btn btn-primary">Actualizar</button>
                 </div>
             </form>
