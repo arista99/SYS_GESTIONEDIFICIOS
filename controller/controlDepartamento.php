@@ -60,6 +60,7 @@ class controlDepartamento
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $DEPARTAMENTO = new Departamento();
                 $DEPARTAMENTO->setedificioFK($_POST['denominacion']);
+                $DEPARTAMENTO->setnroHabitaciones($_POST['nro_habitaciones']);
                 $DEPARTAMENTO->setnroDepartamento($_POST['nro_departamento']);
                 $DEPARTAMENTO->setareaM2($_POST['area']);
                 $DEPARTAMENTO->settipoDepartamentoFK($_POST['tipo_deparamento']);

@@ -5,6 +5,7 @@ class Departamento
 
     private $idDepartamento;
     private $edificioFK;
+    private $nroHabitaciones;
     private $nroDepartamento;
     private $areaM2;
     private $tipoDepartamentoFK;
@@ -18,6 +19,7 @@ class Departamento
     {
         $this->idDepartamento = "";
         $this->edificioFK = "";
+        $this->nroHabitaciones = "";
         $this->nroDepartamento = "";
         $this->areaM2 = "";
         $this->tipoDepartamentoFK = "";
@@ -46,6 +48,16 @@ class Departamento
     function getedificioFK()
     {
         return $this->edificioFK;
+    }
+
+    function setnroHabitaciones($nroHabitaciones)
+    {
+        $this->nroHabitaciones= $nroHabitaciones;
+    }
+
+    function getnroHabitaciones()
+    {
+        return $this->nroDepartamento;
     }
 
     function setnroDepartamento($nroDepartamento)

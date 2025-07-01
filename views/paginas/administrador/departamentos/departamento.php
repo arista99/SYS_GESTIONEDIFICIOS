@@ -9,10 +9,13 @@
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="mb-0">Gestión de Departamentos</h2>
         <!-- Bootstrap 4 - correcto -->
+         <?php if($_SESSION["idRol"] == 4) : ?>
         <button class="btn btn-success" data-toggle="modal" data-target="#modalCrear">+ Crear nuevo</button>
-
+        <?php endif; ?>
     </div>
-
+    <script>
+    const idRol = <?= json_encode($_SESSION['idRol']) ?>;
+    </script>
     <!-- Filtro -->
     <div class="row mb-3">
         <div class="col-md-4">
@@ -32,10 +35,11 @@
     <div class="row">
         <div class="col-xl-12">
             <div class="table-responsive">
-                <table id="tablaDatos" class="table table-striped table-bordered">
+                <table id="tablaDatosDepartamento" class="table table-striped table-bordered">
                     <thead class="table-dark">
                         <tr>
                             <th>Edificio</th>
+                            <th>Nro de Habitaciones</th>
                             <th>Nro de Departamento</th>
                             <th>Area M2</th>
                             <th>Tipo de Departamento</th>
@@ -55,7 +59,7 @@
 
     <!-- Modal Crear -->
     <div class="modal fade" id="modalCrear" tabindex="-1" aria-labelledby="modalCrearLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <form id="formCrear" class="modal-content" enctype="multipart/form-data">
                 <div class="modal-header">
                     <h5 class="modal-title">Crear nuevo Departamento</h5>
@@ -71,40 +75,46 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label for="nro_departamento" class="form-label">Nro de Departamento</label>
-                        <input type="text" id="nro_departamento" name="nro_departamento" class="form-control" required>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="nro_habitaciones" class="form-label">Nro de Habitaciones</label>
+                            <input type="text" id="nro_habitaciones" name="nro_habitaciones" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nro_departamento" class="form-label">Nro de Departamento</label>
+                            <input type="text" id="nro_departamento" name="nro_departamento" class="form-control" required>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="area" class="form-label">Area M2</label>
-                        <input type="text" id="area" name="area" class="form-control" required>
+                    <div class="row gx-3 mb-3">
+
                     </div>
-                    <div class="mb-3">
-                        <label for="tipo_deparamento" class="form-label">Tipo de Departamento</label>
-                        <select name="tipo_deparamento" id="tipo_deparamento" class="form-control">
-                            <option selected disabled>Seleccionar Tipo de Departamento</option>
-                            <?php foreach ($listTipoDepartamentos as $tipod) : ?>
-                                <option value="<?php echo $tipod->idTipo ?>"><?php echo $tipod->descripcion ?></option>
-                            <?php endforeach; ?>
-                        </select>
+
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="tipo_deparamento" class="form-label">Tipo de Departamento</label>
+                            <select name="tipo_deparamento" id="tipo_deparamento" class="form-control">
+                                <option selected disabled>Seleccionar Tipo de Departamento</option>
+                                <?php foreach ($listTipoDepartamentos as $tipod) : ?>
+                                    <option value="<?php echo $tipod->idTipo ?>"><?php echo $tipod->descripcion ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="estado_deparamento" class="form-label">Estado de Departamento</label>
+                            <select name="estado_deparamento" id="estado_deparamento" class="form-control">
+                                <option selected disabled>Seleccionar Estado de Departamento</option>
+                                <?php foreach ($listEstadoDepartamentos as $estadod) : ?>
+                                    <option value="<?php echo $estadod->idEstado ?>"><?php echo $estadod->descripcion ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="estado_deparamento" class="form-label">Estado de Departamento</label>
-                        <select name="estado_deparamento" id="estado_deparamento" class="form-control">
-                            <option selected disabled>Seleccionar Estado de Departamento</option>
-                            <?php foreach ($listEstadoDepartamentos as $estadod) : ?>
-                                <option value="<?php echo $estadod->idEstado ?>"><?php echo $estadod->descripcion ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+
                     <div class="mb-3">
                         <label for="dueno_departamentos" class="form-label">Dueño de Departamentos</label>
                         <input type="text" id="dueno_departamentos" name="dueno_departamentos" class="form-control" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="pisos" class="form-label">Pisos</label>
-                        <input type="text" id="pisos" name="pisos" class="form-control" required>
-                    </div>
+
                     <div class="mb-3">
                         <label for="dueno_telefono" class="form-label">Telefono de Dueño</label>
                         <input type="text" id="dueno_telefono" name="dueno_telefono" class="form-control" required>
