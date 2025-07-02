@@ -9,12 +9,12 @@
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="mb-0">Gestión de Departamentos</h2>
         <!-- Bootstrap 4 - correcto -->
-         <?php if($_SESSION["idRol"] == 4) : ?>
-        <button class="btn btn-success" data-toggle="modal" data-target="#modalCrear">+ Crear nuevo</button>
+        <?php if ($_SESSION["idRol"] == 4) : ?>
+            <button class="btn btn-success" data-toggle="modal" data-target="#modalCrearDepartamento">+ Crear nuevo</button>
         <?php endif; ?>
     </div>
     <script>
-    const idRol = <?= json_encode($_SESSION['idRol']) ?>;
+        const idRol = <?= json_encode($_SESSION['idRol']) ?>;
     </script>
     <!-- Filtro -->
     <div class="row mb-3">
@@ -58,17 +58,17 @@
     </div>
 
     <!-- Modal Crear -->
-    <div class="modal fade" id="modalCrear" tabindex="-1" aria-labelledby="modalCrearLabel" aria-hidden="true">
+    <div class="modal fade" id="modalCrearDepartamento" tabindex="-1" aria-labelledby="modalCrearLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <form id="formCrear" class="modal-content" enctype="multipart/form-data">
+            <form id="formCrear" autocomplete="off" class="modal-content" enctype="multipart/form-data">
                 <div class="modal-header">
                     <h5 class="modal-title">Crear nuevo Departamento</h5>
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Cerrar">X</button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="denominacion" class="form-label">Edificio</label>
-                        <select name="denominacion" id="denominacion" class="form-control">
+                        <label for="edificio" class="form-label">Edificio</label>
+                        <select name="edificio" id="edificio" class="form-control">
                             <option selected disabled>Seleccionar Edificio</option>
                             <?php foreach ($lista_edificios as $edificio) : ?>
                                 <option value="<?php echo $edificio->idEdificio ?>"><?php echo $edificio->denominacion ?></option>
@@ -76,23 +76,23 @@
                         </select>
                     </div>
                     <div class="row gx-3 mb-3">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="nro_habitaciones" class="form-label">Nro de Habitaciones</label>
                             <input type="text" id="nro_habitaciones" name="nro_habitaciones" class="form-control" required>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="nro_departamento" class="form-label">Nro de Departamento</label>
                             <input type="text" id="nro_departamento" name="nro_departamento" class="form-control" required>
                         </div>
+                        <div class="col-md-4">
+                            <label for="aream2" class="form-label">Area M2</label>
+                            <input type="text" id="aream2" name="aream2" class="form-control" required>
+                        </div>
                     </div>
-                    <div class="row gx-3 mb-3">
-
-                    </div>
-
                     <div class="row gx-3 mb-3">
                         <div class="col-md-6">
-                            <label for="tipo_deparamento" class="form-label">Tipo de Departamento</label>
-                            <select name="tipo_deparamento" id="tipo_deparamento" class="form-control">
+                            <label for="tipo_departamento" class="form-label">Tipo de Departamento</label>
+                            <select name="tipo_departamento" id="tipo_departamento" class="form-control">
                                 <option selected disabled>Seleccionar Tipo de Departamento</option>
                                 <?php foreach ($listTipoDepartamentos as $tipod) : ?>
                                     <option value="<?php echo $tipod->idTipo ?>"><?php echo $tipod->descripcion ?></option>
@@ -100,8 +100,8 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="estado_deparamento" class="form-label">Estado de Departamento</label>
-                            <select name="estado_deparamento" id="estado_deparamento" class="form-control">
+                            <label for="estado_departamento" class="form-label">Estado de Departamento</label>
+                            <select name="estado_departamento" id="estado_departamento" class="form-control">
                                 <option selected disabled>Seleccionar Estado de Departamento</option>
                                 <?php foreach ($listEstadoDepartamentos as $estadod) : ?>
                                     <option value="<?php echo $estadod->idEstado ?>"><?php echo $estadod->descripcion ?></option>
@@ -109,19 +109,93 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="mb-3">
-                        <label for="dueno_departamentos" class="form-label">Dueño de Departamentos</label>
-                        <input type="text" id="dueno_departamentos" name="dueno_departamentos" class="form-control" required>
+                            <label for="dueno_departamento" class="form-label">Dueño de Departamentos</label>
+                            <select name="dueno_departamento" id="dueno_departamento" class="form-control">
+                                <option selected disabled>Seleccionar Lista de Usuarios</option>
+                                <?php foreach ($lista_usuarios as $listau) : ?>
+                                    <option value="<?php echo $listau->idUsuario ?>"><?php echo $listau->nombres ?></option>
+                                <?php endforeach; ?>
+                            </select>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="dueno_telefono" class="form-label">Telefono de Dueño</label>
-                        <input type="text" id="dueno_telefono" name="dueno_telefono" class="form-control" required>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="piso_departamento" class="form-label">Nro de piso</label>
+                            <input type="text" id="piso_departamento" name="piso_departamento" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="dueno_telefono" class="form-label">Telefono de Dueño</label>
+                            <input type="text" id="dueno_telefono" name="dueno_telefono" class="form-control" required>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" name="saveInfoButton" id="saveInfoButton" class="btn btn-success">Guardar</button>
+                    <button type="submit" name="saveInfoButtonDepartamento" id="saveInfoButtonDepartamento" class="btn btn-success">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL ACTUALIZAR-->
+    <div class="modal fade" id="modalEditarDepartamento" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <!-- id="formEditarDepartamento" - DESCARTE action="actualizarDepartamento"  method="POST"  -->
+            <form id="formEditarDepartamento" autocomplete="off" class="modal-content" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Departamento</h5>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="idDepartamento" name="idDepartamento">
+                    <div class="mb-3">
+                        <label for="edit_denominacion" class="form-label">Edificio</label>
+                        <select class="form-control text-uppercase" id="edit_denominacion" name="edit_denominacion">
+                        </select>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-4">
+                            <label for="edit_nroHabitaciones" class="form-label">Nro de Habitaciones</label>
+                            <input type="text" id="edit_nroHabitaciones" name="edit_nroHabitaciones" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="edit_nroDepartamento" class="form-label">Nro de Departamento</label>
+                            <input type="text" id="edit_nroDepartamento" name="edit_nroDepartamento" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="edit_areaM2" class="form-label">Area M2</label>
+                            <input type="text" id="edit_areaM2" name="edit_areaM2" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="edit_tipo" class="form-label">Tipo de Departamento</label>
+                            <select class="form-control text-uppercase" id="edit_tipo" name="edit_tipo">
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="edit_estado" class="form-label">Estado de Departamento</label>
+                            <select class="form-control text-uppercase" id="edit_estado" name="edit_estado">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                            <label for="edit_nombres" class="form-label">Dueño de Departamentos</label>
+                            <select class="form-control text-uppercase" id="edit_nombres" name="edit_nombres">
+                            </select>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="edit_piso" class="form-label">Nro de piso</label>
+                            <input type="text" id="edit_piso" name="edit_piso" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="edit_telefono" class="form-label">Telefono de Dueño</label>
+                            <input type="text" id="edit_telefono" name="edit_telefono" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" data-dismiss="modal" aria-label="Cerrar">Cerrar</button>
+                    <button type="submit" name="updateInfoButtonDepartamento" id="updateInfoButtonDepartamento" class="btn btn-primary">Actualizar</button>
                 </div>
             </form>
         </div>
@@ -199,7 +273,11 @@
 <!-- Page level custom scripts -->
 <script src="public/assets/js/demo/datatables-demo.js"></script>
 
-<script src="public/js/buscarDepartamento.js"></script>
+<!-- JS SWEETALERT -->
+<script src="vendor/realrashid/sweet-alert/resources/js/sweetalert.all.js"></script>
+
+<script src="public/js/ajaxEventosDepartamento.js"></script>
+<script src="public/js/ajaxSelectDepartamento.js"></script>
 
 </body>
 

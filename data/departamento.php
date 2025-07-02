@@ -11,7 +11,7 @@ class Departamento
     private $tipoDepartamentoFK;
     private $estadoFK;
     private $fechaRegistro;
-    private $autorregistro;
+    private $autorregistroFK;
     private $piso;
     private $telefono;
 
@@ -25,7 +25,7 @@ class Departamento
         $this->tipoDepartamentoFK = "";
         $this->estadoFK = "";
         $this->fechaRegistro = "";
-        $this->autorregistro = "";
+        $this->autorregistroFK = "";
         $this->piso = "";
         $this->telefono = "";
     }
@@ -57,7 +57,7 @@ class Departamento
 
     function getnroHabitaciones()
     {
-        return $this->nroDepartamento;
+        return $this->nroHabitaciones;
     }
 
     function setnroDepartamento($nroDepartamento)
@@ -110,14 +110,14 @@ class Departamento
         return $this->fechaRegistro;
     }
 
-    function setautorregistro($autorregistro)
+    function setautorregistroFK($autorregistroFK)
     {
-        $this->autorregistro= $autorregistro;
+        $this->autorregistroFK= $autorregistroFK;
     }
 
-    function getautorregistro()
+    function getautorregistroFK()
     {
-        return $this->autorregistro;
+        return $this->autorregistroFK;
     }
 
     function setpiso($piso)

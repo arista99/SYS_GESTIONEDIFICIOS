@@ -91,7 +91,8 @@
 
     <div class="modal fade" id="modalEditarEdificio" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form id="formEditarEdificio" class="modal-content" enctype="multipart/form-data">
+            <!-- id="formEditarEdificio" -->
+            <form autocomplete="off" class="modal-content" enctype="multipart/form-data">
                 <div class="modal-header">
                     <h5 class="modal-title">Editar Edificio</h5>
                 </div>
@@ -194,8 +195,7 @@
 <!-- JS SWEETALERT -->
 <script src="vendor/realrashid/sweet-alert/resources/js/sweetalert.all.js"></script>
 
-<script src="public/js/buscarEdificio.js"></script>
-<script src="public/js/JSedificio.js"></script>
+<script src="public/js/ajaxEventosEdificio.js"></script>
 
 </body>
 

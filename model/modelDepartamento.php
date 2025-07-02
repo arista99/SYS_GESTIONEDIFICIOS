@@ -22,7 +22,7 @@ class ModeloDepartamento
         try {
             $sql = "SELECT de.idDepartamento, ed.denominacion, de.nroHabitaciones, de.nroDepartamento,
                        de.areaM2, td.descripcion AS tipo, edo.descripcion AS estado,
-                       u.nombres, de.piso
+                       u.nombres, de.piso, de.telefono
                 FROM departamento AS de
                 INNER JOIN edificio AS ed ON ed.idEdificio = de.edificioFK
                 INNER JOIN tipodepartamento AS td ON td.idTipo = de.tipoDepartamentoFK
@@ -70,7 +70,7 @@ class ModeloDepartamento
                     $departamento->getareaM2(),
                     $departamento->gettipoDepartamentoFK(),
                     $departamento->getestadoFK(),
-                    $departamento->getautorregistro(),
+                    $departamento->getautorregistroFK(),
                     $departamento->getpiso(),
                     $departamento->gettelefono()
                 )
@@ -86,15 +86,16 @@ class ModeloDepartamento
     public function updateDepartamento(Departamento $departamento)
     {
         try {
-            $sql = "UPDATE departamento SET edificioFK =?, nroDepartamento =?,areaM2 =?,tipoDepartamentoFK =?,estadoFK =?,autorregistro =?,piso =?,telefono =? WHERE idDepartamento =?";
+            $sql = "UPDATE departamento SET edificioFK =?, nroHabitaciones =?, nroDepartamento =?,areaM2 =?,tipoDepartamentoFK =?,estadoFK =?,autorregistro =?,piso =?,telefono =? WHERE idDepartamento =?";
             $stm = $this->MYSQL->ConectarBD()->prepare($sql)->execute(
                 array(
                     $departamento->getedificioFK(),
+                    $departamento->getnroHabitaciones(),
                     $departamento->getnroDepartamento(),
                     $departamento->getareaM2(),
                     $departamento->gettipoDepartamentoFK(),
                     $departamento->getestadoFK(),
-                    $departamento->getautorregistro(),
+                    $departamento->getautorregistroFK(),
                     $departamento->getpiso(),
                     $departamento->gettelefono(),
                     $departamento->getidDepartamento()
@@ -107,21 +108,23 @@ class ModeloDepartamento
     }
     /********************************************************************************************************/
 
-    /*******************************************Cambio de Estado - Departamento*****************************************/
-    public function statusDepartamento(Departamento $departamento)
-    {
-        try {
-            $sql = "UPDATE departamento SET estadoFK = ? WHERE idDepartamento = ?";
-            $stm = $this->MYSQL->ConectarBD()->prepare($sql)->execute(
-                array(
-                    $departamento->getestadoFK(),
-                    $departamento->getidDepartamento()
-                )
-            );
-            return $stm;
-        } catch (Exception $th) {
-            echo $th->getMessage();
-        }
-    }
-    /********************************************************************************************************/
+     /*******************************************ELIMINAR USUARIOS********************************************/
+     public function deleteDepartamento($iddepartamento)
+     {
+         try {
+             $sql = "DELETE FROM departamento WHERE idDepartamento = ?";
+             $stm = $this->MYSQL->ConectarBD()->prepare($sql)->execute(
+                 array(
+                    $iddepartamento
+                 )
+             );
+             return $stm;
+         } catch (Exception $th) {
+             echo $th->getMessage();
+         }
+     }
+ 
+     /*********************************************************************************************************/
+
+
 }

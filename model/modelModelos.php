@@ -21,7 +21,7 @@ class ModeloModelos
     public function listUsuario()
     {
         try {
-            $sql = "SELECT * FROM usuario";
+            $sql = "SELECT * FROM usuario WHERE idRol = 4";
             $stm = $this->MYSQL->ConectarBD()->prepare($sql);
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_OBJ);

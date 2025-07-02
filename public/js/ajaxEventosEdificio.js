@@ -1,6 +1,5 @@
 $(document).ready(function () {
   // Inicializar DataTable
-
   var tabla = $("#tablaDatosEdificio").DataTable({
     ajax: {
       url: "ListaEdificio",
@@ -41,14 +40,62 @@ $(document).ready(function () {
       {
         targets: 5,
         visible: idRol == 4, // solo mostrar si rol == 4
-        searchable: false
-      }
-    ]
+        searchable: false,
+      },
+    ],
   });
 
   // Botón Buscar
   $("#btnBuscarEdificio").click(function () {
     tabla.ajax.reload();
+  });
+
+  // Crear Edificio
+  $("#saveInfoButtonEdificio").click(function (event) {
+    event.preventDefault();
+
+    // Obtener los datos del formulario
+    var formData = {
+      condominio: $("#condominio").val(),
+      direccion: $("#direccion").val(),
+      nropiso: $("#nropiso").val(),
+      nrodepa: $("#nrodepa").val(),
+      estado_con: $("#estado_con").val(),
+    };
+
+    // console.log(formData);
+
+    // Realizar la solicitud AJAX
+    $.ajax({
+      url: "registrarEdificio", // Cambia a la URL de tu controlador
+      method: "POST",
+      data: formData,
+      dataType: "json",
+      success: function (response) {
+        // Verificar si la solicitud fue exitosa
+        if (response.success) {
+          Swal.fire({
+            icon: "success",
+            title: "Se creo edificio",
+            timer: 1500,
+            showConfirButton: false,
+          }).then(function () {
+            $("#modalCrearEdificio").modal("hide"); // Cerrar el modal
+            location.reload(); // Recargar la página
+          });
+        } else {
+          alert("Error: " + response.message); // Mostrar el mensaje de error del servidor
+        }
+      },
+      error: function (xhr, status, error) {
+        // Manejar errores de la solicitud AJAX
+        console.error("Error en la solicitud AJAX:", error);
+        console.error("Respuesta del servidor:", xhr.responseText); // Mostrar la respuesta en la consola
+        alert(
+          "Ocurrió un error al procesar la solicitud. Por favor, intenta nuevamente."
+        );
+      },
+    });
   });
 
   // Evento click para llenar el modal de edición
@@ -124,14 +171,14 @@ $(document).ready(function () {
         $.post("eliminarEdificio", { id }, function () {
           Swal.fire(
             "¡Eliminado!",
-            "El departamento ha sido eliminado.",
+            "El edificio ha sido eliminado.",
             "success"
           );
           tabla.ajax.reload();
         }).fail(function () {
           Swal.fire(
             "Error",
-            "Hubo un problema al eliminar el departamento.",
+            "Hubo un problema al eliminar el edificio.",
             "error"
           );
         });
