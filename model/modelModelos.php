@@ -16,6 +16,21 @@ class ModeloModelos
         }
     }
 
+    /*******************************************Lista Usuario********************************************/
+    public function listSexo()
+    {
+        try {
+            $sql = "SELECT * FROM sexo";
+            $stm = $this->MYSQL->ConectarBD()->prepare($sql);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $th) {
+            echo $th->getMessage();
+        }
+    }
+    /*********************************************************************************************************/
+
+
     
     /*******************************************Lista Usuario********************************************/
     public function listUsuario()
@@ -129,4 +144,31 @@ class ModeloModelos
       }
       /*********************************************************************************************************/
 
+      /*******************************************Lista Relacion Propietario********************************************/
+      public function listRelacionPropietario()
+      {
+          try {
+              $sql = "SELECT * FROM relacionconpropietario";
+              $stm = $this->MYSQL->ConectarBD()->prepare($sql);
+              $stm->execute();
+              return $stm->fetchAll(PDO::FETCH_OBJ);
+          } catch (Exception $th) {
+              echo $th->getMessage();
+          }
+      }
+      /*********************************************************************************************************/
+
+      /*******************************************Lista Especie Mascota********************************************/
+      public function listEspecieMascota()
+      {
+          try {
+              $sql = "SELECT * FROM especiemascota";
+              $stm = $this->MYSQL->ConectarBD()->prepare($sql);
+              $stm->execute();
+              return $stm->fetchAll(PDO::FETCH_OBJ);
+          } catch (Exception $th) {
+              echo $th->getMessage();
+          }
+      }
+      /*********************************************************************************************************/
 }
