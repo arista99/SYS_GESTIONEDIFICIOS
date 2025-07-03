@@ -6,6 +6,7 @@ include_once('controller/ControlEdificio.php');
 include_once('controller/ControlMascota.php');  
 include_once('controller/ControlOcupante.php');  
 include_once('controller/ControlPropietario.php');
+include_once('controller/ControlUsuario.php');
 
 //PARA LOS CARACTERES EXTRAÑOS
 header('Content-Type: text/html; charset=utf-8');
@@ -21,6 +22,7 @@ $ControlEdificio = new ControlEdificio();
 $ControlMascota = new ControlMascota();
 $ControlOcupante = new ControlOcupante();
 $ControlPropietario = new ControlPropietario();
+$ControlUsuario = new ControlUsuario();
 
 //LLAMADA DE LOS METODOS
 if (!isset($_REQUEST['ruta'])) {
@@ -41,6 +43,8 @@ if (!isset($_REQUEST['ruta'])) {
         call_user_func(array($ControlOcupante, $peticion));
     }elseif(method_exists($ControlPropietario, $peticion)) {
         call_user_func(array($ControlPropietario, $peticion));
+    }elseif(method_exists($ControlUsuario, $peticion)) {
+        call_user_func(array($ControlUsuario, $peticion));
     }else{
         $controlIndex->Index();
     }
