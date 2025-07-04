@@ -89,6 +89,7 @@
         </div>
     </div>
 
+    <!-- Modal Editar -->
     <div class="modal fade" id="modalEditarEdificio" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
         <div class="modal-dialog">
             <!-- id="formEditarEdificio" -->
@@ -135,13 +136,7 @@
 <!-- End of Main Content -->
 
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Gestion de Activos - Transber <?php echo date("Y"); ?></span>
-        </div>
-    </div>
-</footer>
+
 <!-- End of Footer -->
 
 </div>

@@ -51,6 +51,147 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Crear -->
+    <div class="modal fade" id="modalCrearOcupante" tabindex="-1" aria-labelledby="modalCrearLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <form id="formCrear" autocomplete="off" class="modal-content" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h5 class="modal-title">Crear nuevo Ocupante</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Cerrar">X</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="nombre_ocu" class="form-label">Nombre</label>
+                            <input type="text" id="nombre_ocu" name="nombre_ocu" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="dni_ocu" class="form-label">Dni</label>
+                            <input type="text" id="dni_ocu" name="dni_ocu" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                                <label for="apep_ocu" class="form-label">Apellido Paterno</label>
+                                <input type="text" id="apep_ocu" name="apep_ocu" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="apem_ocu" class="form-label">Apellido Materno</label>
+                            <input type="text" id="apem_ocu" name="apem_ocu" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="celular_ocu" class="form-label">Celular</label>
+                            <input type="text" id="celular_ocu" name="celular_ocu" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="estado_ocu" class="form-label">Estado</label>
+                            <input type="text" id="estado_ocu" name="estado_ocu" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                            <label for="sexo_ocu" class="form-label">Sexo</label>
+                            <select name="sexo_ocu" id="sexo_ocu" class="form-control">
+                                <option selected disabled>Seleccionar Sexo Ocupante</option>
+                                <?php foreach ($lista_sexo as $lista_s) : ?>
+                                    <option value="<?php echo $lista_s->idSexo ?>"><?php echo $lista_s->descripcion ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="relacion_ocu" class="form-label">Relacion</label>
+                            <select name="relacion_ocu" id="relacion_ocu" class="form-control">
+                                <option selected disabled>Seleccionar Relacion</option>
+                                <?php foreach ($lista_relacion as $lista_r) : ?>
+                                    <option value="<?php echo $lista_r->idRelacion ?>"><?php echo $lista_r->descripcion ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="departamento_ocu" class="form-label">Departamento</label>
+                            <select name="departamento_ocu" id="departamento_ocu" class="form-control">
+                                <option selected disabled>Seleccionar Departamento</option>
+                                <?php foreach ($lista_departamento as $lista_d) : ?>
+                                    <option value="<?php echo $lista_d->idDepartamento ?>"><?php echo $lista_d->nroDepartamento ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="saveInfoButtonOcupante" id="saveInfoButtonOcupante" class="btn btn-success">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Editar -->
+    <div class="modal fade" id="modalEditarOcupante" tabindex="-1" aria-labelledby="modalCrearLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <form id="formEditarOcupante" autocomplete="off" class="modal-content" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h5 class="modal-title">Crear nuevo Ocupante</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Cerrar">X</button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="idOcupante" name="idOcupante">
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="edit_nombre_ocu" class="form-label">Nombre</label>
+                            <input type="text" id="edit_nombre_ocu" name="edit_nombre_ocu" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="edit_dni_ocu" class="form-label">Dni</label>
+                            <input type="text" id="edit_dni_ocu" name="edit_dni_ocu" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                                <label for="edit_apep_ocu" class="form-label">Apellido Paterno</label>
+                                <input type="text" id="edit_apep_ocu" name="edit_apep_ocu" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="edit_apem_ocu" class="form-label">Apellido Materno</label>
+                            <input type="text" id="edit_apem_ocu" name="edit_apem_ocu" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="edit_celular_ocu" class="form-label">Celular</label>
+                            <input type="text" id="edit_celular_ocu" name="edit_celular_ocu" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="edit_estado_ocu" class="form-label">Estado</label>
+                            <input type="text" id="edit_estado_ocu" name="edit_estado_ocu" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                            <label for="edit_sexo_ocu" class="form-label">Sexo</label>
+                            <select name="edit_sexo_ocu" id="edit_sexo_ocu" class="form-control">
+                            </select>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="edit_relacion_ocu" class="form-label">Relacion</label>
+                            <select name="edit_relacion_ocu" id="edit_relacion_ocu" class="form-control">
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="edit_departamento_ocu" class="form-label">Departamento</label>
+                            <select name="edit_departamento_ocu" id="edit_departamento_ocu" class="form-control">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="updateInfoButtonOcupante" id="updateInfoButtonOcupante" class="btn btn-success">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 
@@ -59,13 +200,6 @@
 <!-- End of Main Content -->
 
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Gestion de Activos - Transber <?php echo date("Y"); ?></span>
-        </div>
-    </div>
-</footer>
 <!-- End of Footer -->
 
 </div>
@@ -120,6 +254,7 @@
 <script src="vendor/realrashid/sweet-alert/resources/js/sweetalert.all.js"></script>
 
 <script src="public/js/ajaxEventosOcupante.js"></script>
+<script src="public/js/ajaxSelectOcupante.js"></script>
 
 </body>
 

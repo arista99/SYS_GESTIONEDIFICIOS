@@ -40,5 +40,61 @@ class ModeloMascota
         }
     }
 
-    /******************************************************************************************************/
+/******************************************************************************************************/
+
+ /*******************************************Crear Ocupante*****************************************/
+ public function createMascota(Mascota $mascota)
+ {
+     try {
+         $sql = "INSERT INTO mascotas (departamentoFK,nombre,especieFK) VALUES (?,?,?)";
+         $stm = $this->MYSQL->ConectarBD()->prepare($sql)->execute(
+             array(
+                $mascota->getdepartamentoFK(),
+                $mascota->getnombre(),
+                $mascota->getespecieFK()
+                 )
+         );
+         return $stm;
+     } catch (Exception $th) {
+         echo $th->getMessage();
+     }
+ }
+ /********************************************************************************************************/
+
+ /*******************************************Actualizar Mascota*****************************************/
+public function updateMascota(Mascota $mascota)
+{
+    try {
+        $sql = "UPDATE mascotas SET departamentoFK =?, nombre =?, especieFK =? WHERE idMascota =?";
+        $stm = $this->MYSQL->ConectarBD()->prepare($sql)->execute(
+            array(
+                $mascota->getdepartamentoFK(),
+                $mascota->getnombre(),
+                $mascota->getespecieFK(),
+                $mascota->getidMascota()
+            )
+        );
+        return $stm;
+    } catch (Exception $th) {
+        echo $th->getMessage();
+    }
+}
+/********************************************************************************************************/
+
+ /*******************************************ELIMINAR MASCOTA********************************************/
+ public function deleteMascota($idmascota)
+ {
+     try {
+         $sql = "DELETE FROM mascotas WHERE idMascota = ?";
+         $stm = $this->MYSQL->ConectarBD()->prepare($sql)->execute(
+             array(
+                $idmascota
+             )
+         );
+         return $stm;
+     } catch (Exception $th) {
+         echo $th->getMessage();
+     }
+ }
+ /********************************************************************************************************/
 }

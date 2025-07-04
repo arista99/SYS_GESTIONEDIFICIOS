@@ -48,16 +48,82 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Crear -->
+    <div class="modal fade" id="modalCrearMascota" tabindex="-1" aria-labelledby="modalCrearLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <!-- id="formCrearMascota" -->
+            <form id="formCrearMascota" class="modal-content" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h5 class="modal-title">Crear nuevo Mascota</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="dep_mascota" class="form-label">Nro Departamento</label>
+                        <select name="dep_mascota" id="dep_mascota" class="form-control">
+                            <option selected disabled>Seleccionar Departamento</option>
+                            <?php foreach ($lista_departamento as $lista_d) : ?>
+                                <option value="<?php echo $lista_d->idDepartamento ?>"><?php echo $lista_d->nroDepartamento ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nom_mascota" class="form-label">Nombre Mascota</label>
+                        <input type="text" id="nom_mascota" name="nom_mascota" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="esp_mascota" class="form-label">Especie Mascota</label>
+                        <select name="esp_mascota" id="esp_mascota" class="form-control">
+                            <option selected disabled>Seleccionar Especie</option>
+                            <?php foreach ($lista_especiemascota as $lista_e) : ?>
+                                <option value="<?php echo $lista_e->idEspecie ?>"><?php echo $lista_e->descripcion ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" data-dismiss="modal" aria-label="Cerrar">Cerrar</button>
+                    <button type="submit" name="saveInfoButtonMascota" id="saveInfoButtonMascota" class="btn btn-success">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Editar -->
+    <div class="modal fade" id="modalEditarMascota" tabindex="-1" aria-labelledby="modalCrearLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form id="formEditarMascota" class="modal-content" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h5 class="modal-title">Crear nuevo Mascota</h5>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="idMascota" name="idMascota">
+                    <div class="mb-3">
+                        <label for="edit_dep_mascota" class="form-label">Nro Departamento</label>
+                        <select class="form-control text-uppercase" id="edit_dep_mascota" name="edit_dep_mascota">
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_nom_mascota" class="form-label">Nombre Mascota</label>
+                        <input type="text" id="edit_nom_mascota" name="edit_nom_mascota" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_esp_mascota" class="form-label">Especie Mascota</label>
+                        <select class="form-control text-uppercase" id="edit_esp_mascota" name="edit_esp_mascota">
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" data-dismiss="modal" aria-label="Cerrar">Cerrar</button>
+                    <button type="submit" name="updateInfoButtonMascota" id="updateInfoButtonMascota" class="btn btn-success">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Gestion de Activos - Transber <?php echo date("Y"); ?></span>
-        </div>
-    </div>
-</footer>
+
 <!-- End of Footer -->
 
 </div>
@@ -112,6 +178,7 @@
 <script src="vendor/realrashid/sweet-alert/resources/js/sweetalert.all.js"></script>
 
 <script src="public/js/ajaxEventosMascota.js"></script>
+<script src="public/js/ajaxSelectMascota.js"></script>
 
 </body>
 
