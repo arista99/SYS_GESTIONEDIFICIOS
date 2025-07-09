@@ -52,7 +52,7 @@
                         <!-- Filtro -->
                         <div class="row mb-4">
                             <div class="col-md-6 col-lg-4">
-                            <input type="text" id="inputCondominio" class="form-control" placeholder="Ingrese Condominio" aria-label="Ingrese Condominio" onfocus="leerTexto(this)">
+                                <input type="text" id="inputCondominio" class="form-control" placeholder="Ingrese Condominio" aria-label="Ingrese Condominio" onfocus="leerTexto(this)">
                             </div>
                             <div class="col-md-6 col-lg-4">
                                 <input type="text" id="inputHabitaciones" class="form-control" placeholder="Ingrese numero de Habitaciones" aria-label="Ingrese numero de Habitaciones" onfocus="leerTexto(this)">
@@ -89,13 +89,25 @@
     </div>
 
     <!-- Interruptor de lectura -->
-    <div class="form-check form-switch position-fixed bottom-0 end-0 m-4">
+    <!-- <div class="form-check form-switch position-fixed bottom-0 end-0 m-4">
         <input class="form-check-input" type="checkbox" role="switch" id="toggleLectura">
         <label class="form-check-label text-white" for="toggleLectura">
             <i class="fas fa-wheelchair"></i>
         </label>
-    </div>
+    </div> -->
 
+    <!-- Interruptor de lectura -->
+    <div class="position-fixed bottom-0 end-0 m-4">
+        <div class="form-check form-switch p-0 m-0">
+            <input class="form-check-input d-none" type="checkbox" role="switch" id="toggleLectura">
+            <label class="btn btn-lg d-flex justify-content-center align-items-center rounded-circle shadow"
+                for="toggleLectura"
+                style="width: 120px; height: 120px; background-color: white;">
+                <i class="fas fa-wheelchair" style="color: #333; font-size: 28px;"></i>
+            </label>
+        </div>
+    </div>
+    
     <!-- Scripts -->
     <!-- jQuery (¡debe ir primero!) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
