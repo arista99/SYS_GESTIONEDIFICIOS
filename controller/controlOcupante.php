@@ -4,7 +4,7 @@ include_once('model/modelOcupante.php');
 include_once('model/modelModelos.php');
 
 //DATA
-include_once('data/propietario.php');
+include_once('data/ocupante.php');
 
 class controlOcupante
 {
